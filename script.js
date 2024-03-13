@@ -26,15 +26,6 @@ function createBookElement(book) {
         <p><strong>Language Read In:</strong> ${book.Language}</p>
     `;
 
-    // Event listener for clicking on the book
-    bookDiv.addEventListener('click', function() {
-        bookDiv.classList.toggle('expanded');
-        if (bookDiv.classList.contains('expanded')) {
-            addBookImage(bookDiv, book.ISBN);
-        } else {
-            removeBookImage(bookDiv);
-        }
-    });
 
     return bookDiv;
 }

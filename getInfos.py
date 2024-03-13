@@ -13,7 +13,7 @@ def getImageFromURL(book):
     if book['ISBN'] and book['bookCover'] and not(os.path.isfile("images/"+book['ISBN']+'.jpg')):
         print("Found url & ISBN for current book: ", book['Title'])
         url = book['bookCover']
-        file_name = str("images/"+book['ISBN']+'.jpg')
+        file_name = str("static/"+book['ISBN']+'.jpg')
         data = requests.get(url).content
         f = open(file_name, 'wb')
         f.write(data)
