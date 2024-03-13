@@ -1,47 +1,74 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f4f3; /* Light teal background */
+    color: #333333; /* Dark grey text color */
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Maximum width as a percentage of the viewport width */
+    margin: 5% auto; /* Margin as a percentage of the viewport width */
+    padding: 2%; /* Padding as a percentage of the viewport width */
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
 }
 
 h1 {
     text-align: center;
+    font-size: 2.5vw; /* Font size as a percentage of the viewport width */
+    margin-bottom: 2%; /* Margin bottom as a percentage of the viewport width */
+    color: #00474b; /* Dark teal text color */
 }
 
 img {
     display: block;
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 40%; /* Maximum width as a percentage of the container width */
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 2%; /* Margin bottom as a percentage of the container width */
 }
 
 h2, p {
-    margin-bottom: 10px;
+    margin-bottom: 2%; /* Margin bottom as a percentage of the container width */
+    color: #333333; /* Dark grey text color */
 }
 
 p {
-    font-size: 14px;
-    color: #555;
+    font-size: 1.2vw; /* Font size as a percentage of the viewport width */
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 2%; /* Gap between grid items as a percentage of the viewport width */
 }
 
 .grid-item {
     text-align: center;
+    border: 2px solid #83a3a0; /* Dark teal border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 2%; /* Padding inside grid items */
+    background-color: #d7ebe9; /* Dark teal background for grid items */
 }
 
 img {
-    max-width: 100%;
+    max-width: 5vw;
+}
+
+.sortButton {
+    background-color: #00363a; /* Darker teal background for sort button */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for dropdown menu */
+#sortDropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
 }

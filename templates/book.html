@@ -7,16 +7,32 @@
 <body>
     <div class="container">
         <h1>Book Details</h1>
+        
+        <!-- Sort by form -->
+        <form action="{{ url_for('book_details') }}" method="GET">
+            <label for="sortDropdown">Sort by:</label>
+            <select id="sortDropdown" name="sort_option">
+                <option value="Author">Author</option>
+                <option value="Title">Title</option> <!-- Add option to sort by title -->
+                <option value="ReadFor">Sort by Time Spent Reading</option>
+                <!-- Add more sorting options if needed -->
+            </select>
+            <button type="submit" class="sortButton">Sort</button> <!-- Apply styling to the sort button -->
+        </form>
+        
+        <!-- Book grid -->
         <div class="grid-container">
             {% for book in books %}
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='book_cover.jpg') }}" alt="Book Cover">
-                <h2>Title: {{ book['Title'] }}</h2>
+                <img src="{{ url_for('static', filename=''+book['ISBN'])+'.jpg' }}" onerror="this.onerror=null; this.src='static/book_not_found.jpg'">
+                <h2> {{ book['Title'] }}</h2>
                 <p>Author: {{ book['Author'] }}</p>
-                <p>ISBN: {{ book['ISBN'] }}</p>
+                <p>Book finished on: {{ book['Date Read'] }}</p>
+                <p>Time spent reading: {{ book['ReadForFormatted'] }}</p>
             </div>
             {% endfor %}
         </div>
     </div>
+    
 </body>
 </html>

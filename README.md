@@ -14,7 +14,7 @@ For safety purposes, I recommend to make a copy of the sqlite database, even tho
 
 ### python
 
-- ??
+- Format the "read on" date to something readable
 
 ### HTML
 - Sort by "Series"
