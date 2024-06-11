@@ -1,6 +1,6 @@
 KoboReader.sqlite
 env/*
-readbooks.json
+readbooks*.json
 images/*
 static/*.jpg
 __pycache__/*
