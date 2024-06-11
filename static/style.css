@@ -1,0 +1,233 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6f4f3; /* Light teal background */
+    color: #333333; /* Dark grey text color */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    
+}
+
+.container {
+    max-width: 90%; /* Maximum width as a percentage of the viewport width */
+    margin: 5% auto; /* Margin as a percentage of the viewport width */
+    padding: 2%; /* Padding as a percentage of the viewport width */
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5vw; /* Font size as a percentage of the viewport width */
+    margin-bottom: 2%; /* Margin bottom as a percentage of the viewport width */
+    color: #00474b; /* Dark teal text color */
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 40%; /* Maximum width as a percentage of the container width */
+    height: auto;
+    margin-bottom: 2%; /* Margin bottom as a percentage of the container width */
+}
+
+h2, p {
+    margin-bottom: 2%; /* Margin bottom as a percentage of the container width */
+    color: #333333; /* Dark grey text color */
+}
+
+p {
+    font-size: 1.2vw; /* Font size as a percentage of the viewport width */
+}
+
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust columns based on available space */
+    grid-gap: 20px; /* Gap between grid items */
+    padding: 20px;
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+
+/* Grid item */
+.grid-item {
+    text-align: center;
+    border: 2px solid #83a3a0; /* Dark teal border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside grid items */
+    background-color: #d7ebe9; /* Dark teal background for grid items */
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust columns for smaller screens */
+    }
+}
+
+/* Style for grid item on hover */
+.grid-item:hover {
+    background-color: #c8e6e2; /* Subtle color change on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+
+img {
+    max-width: 5vw;
+}
+
+.sortButton {
+    background-color: #00363a; /* Darker teal background for sort button */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for dropdown menu */
+#sortDropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* Modal overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1000; /* Ensure modal is on top of other content */
+}
+
+/* Modal content */
+/* Modal content */
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.5); /* Use 2% of viewport width for box shadow */
+    width: 60vw; /* Use 60% of viewport width for width */
+    height: 60vh; /* Use 60% of viewport height for height */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds max height */
+    padding: 5vw; /* Use 5% of viewport width for padding */
+    max-width: 70vw; /* Use maximum 70% of viewport width */
+    max-height: 70vh; /* Use maximum 70% of viewport height */
+}
+
+
+.modal-content p {
+    font-size: 1.2vw; /* Use 2.5% of viewport width for font size */
+    line-height: 1.0; /* Set line height to 1.5 times the font size */
+}
+
+.modal-img {
+    max-width: 10vw; /* Remove maximum width restriction */
+}
+
+
+/* ADDITIONAL INFO */
+
+/* Styles for modal content */
+.additional-info {
+    display: grid;
+    grid-template-rows: 1fr auto; /* First row takes remaining space, second row auto */
+    height: 100%; /* Ensure the modal fills its parent container */
+}
+
+.additional-info .modal-content {
+    align-self: start; /* Align content to the start of the grid cell (top) */
+    padding-bottom: 20px; /* Add some bottom padding to separate from the bottom */
+}
+
+
+/* _________________________________ */
+
+/* Image inside grid item */
+.grid-img {
+    max-width: 5vw; /* Set maximum width for images in grid items */
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Arrow styles */
+/* Arrow styles */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: #00474b; /* Dark teal color */
+    background-color: #ffffff; /* White background color */
+    border: 2px solid #00474b; /* Dark teal border */
+    border-radius: 50%; /* Rounded shape */
+    padding: 8px; /* Padding around arrow */
+    z-index: 1001; /* Ensure arrow is above modal content */
+    width: 40px; /* Set width of arrow container */
+    height: 40px; /* Set height of arrow container */
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    line-height: 40px; /* Center content vertically within circle */
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.arrow::before {
+    content: "\2190"; /* Unicode arrow left character */
+}
+
+.right-arrow::before {
+    content: "\2192"; /* Unicode arrow right character */
+}
+
+
+
+
+/* Footer CSS */
+.footer {
+    width: 100%;
+    background-color: #121d1d; /* Dark teal background for footer */
+    color: #ffffff; /* White text color */
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
+    font-family: Arial, sans-serif; /* Change font family */
+    font-size: 2.3vw; /* Font size scaled with viewport width */
+}
+
+.footer p {
+    margin: 0; /* Remove default margin for paragraphs */
+    line-height: 1.5; /* Adjust line height for readability */
+    color: #ffffff; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.footer p:hover {
+    text-decoration: underline; /* Add underline on hover for links */
+}
