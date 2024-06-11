@@ -1,10 +1,26 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import json
 app = Flask(__name__)
 with open('readbooks.json', encoding='utf8') as file:
     books = json.load(file)
 
 # Access the list of books in the JSON data
+
+@app.route('/sort', methods=['POST'])
+def sort():
+    # Get the sort option from the form data
+    sort_option = request.form['sort_option']
+
+    # Sorting logic based on sort_option
+    if sort_option == 'Author':
+        sorted_books = sorted(books, key=lambda x: x['Author'])
+    elif sort_option == 'Title':
+        sorted_books = sorted(books, key=lambda x: x['Title'])
+    else:
+        sorted_books = books  # Default to original order
+
+    # Return the sorted data as JSON
+    return jsonify(sorted_books)
 
 # Pass the list of books to the template
 @app.route('/')

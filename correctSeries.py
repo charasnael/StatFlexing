@@ -1,8 +1,7 @@
-from getInfos import correctSeries
+from getInfos import correctSeries, correctDateRead, correctThoughts
 import os.path
 import json
 
-filepath="./KoboReader.sqlite"
 jsonpath="./readbooks.json"
 queryReadBooks = "select Attribution, Title, DateLastRead, Series, TimeSpentReading   from content WHERE ___PercentRead like 100 AND TimeSpentReading > 0;"
 queryReadBooksKeys = ["Author","Title","Date Read", "Series","ReadFor"]
@@ -15,6 +14,8 @@ if __name__ == '__main__':
             
         for item in existingJSON:
             item=correctSeries(item)
+            item=correctDateRead(item)
+            item=correctThoughts(item)
             listReadBooks.append(item)
             
         # Updating existing file

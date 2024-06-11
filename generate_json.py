@@ -1,6 +1,6 @@
 import sqlite3, json
 from datetime import timedelta
-from getInfos import getInfosFromTitle, correctSeries
+from getInfos import getInfosFromTitle, correctSeries, correctDateRead, correctThoughts
 import os.path
 import time
 
@@ -34,8 +34,8 @@ if __name__ == '__main__':
             
         # FOR ADDED ENTRIES IN COMPARISON TO EXISTING JSON 
         for item in listReadBooks:
+            
             if not (value_exists(item['Title'], existingJSON)):
-                
                 #  getting metadata for new entry
                 item=getInfosFromTitle(item)
                 item=correctSeries(item)
@@ -55,6 +55,8 @@ if __name__ == '__main__':
             item=getInfosFromTitle(item)
             booksToAdd.append(item)
             item=correctSeries(item)
+            item=correctDateRead(item)
+            item=correctThoughts(item)
         # Writes the created list into the file as json
         with open(jsonpath, 'w', encoding='utf8') as json_file:
             json.dump(booksToAdd, json_file, ensure_ascii=False)

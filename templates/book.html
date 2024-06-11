@@ -1,38 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Details</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Book Details</h1>
-        
+        <h1>Book Details</h1>        
         <!-- Sort by form -->
-        <form action="{{ url_for('book_details') }}" method="GET">
+        
+        <form id="sortForm">
             <label for="sortDropdown">Sort by:</label>
             <select id="sortDropdown" name="sort_option">
                 <option value="Author">Author</option>
-                <option value="Title">Title</option> <!-- Add option to sort by title -->
+                <option value="Title">Title</option>
                 <option value="ReadFor">Sort by Time Spent Reading</option>
                 <!-- Add more sorting options if needed -->
             </select>
-            <button type="submit" class="sortButton">Sort</button> <!-- Apply styling to the sort button -->
+            <button type="button" id="sortButton" class="sortButton">Sort</button> <!-- Change type to "button" -->
         </form>
+        
         
         <!-- Book grid -->
         <div class="grid-container">
             {% for book in books %}
             <div class="grid-item">
-                <img src="{{ url_for('static', filename=''+book['ISBN'])+'.jpg' }}" onerror="this.onerror=null; this.src='static/book_not_found.jpg'">
-                <h2> {{ book['Title'] }}</h2>
-                <p>Author: {{ book['Author'] }}</p>
-                <p>Book finished on: {{ book['Date Read'] }}</p>
-                <p>Time spent reading: {{ book['ReadForFormatted'] }}</p>
+                <img class="grid-img" src="{{ url_for('static', filename=''+book['ISBN'])+'.jpg' }}" onerror="this.onerror=null; this.src='static/book_not_found.jpg'">
+                <h2>{{ book['Title'] }}</h2>
+                <p><strong>Author:</strong> {{ book['Author'] }}</p>
+
+                <div class="additional-info" style="display: none;">
+                    <img class="modal-img" src="{{ url_for('static', filename=''+book['ISBN'])+'.jpg' }}" onerror="this.onerror=null; this.src='static/book_not_found.jpg'">
+                    <p><strong>Title:</strong> {{ book['Title'] }}</p>
+                    <p><strong>Author:</strong> {{ book['Author'] }}</p>
+                    <p><strong>Book finished on (d/m/y):</strong> {{ book['DateReadFormatted'] }}</p>
+                    <p><strong>Time spent reading:</strong> {{ book['ReadForFormatted'] }}</p>
+                    <p><strong>Language read in:</strong> {{ book['Language'] }}</p>
+                    <p><strong>Thoughts:</strong> {{ book['Thoughts'] }} </p>
+                    <p class="read-for" style="display: none;">{{ book['ReadFor'] }}</p>
+                </div>
+                
+                
             </div>
             {% endfor %}
         </div>
+
+
+
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <span class="arrow left-arrow"></span>
+                <span class="arrow right-arrow"></span>
+                <span class="close">&times;</span>
+                <div class="modal-text"></div>
+            </div>
+        </div>
+        
+
     </div>
-    
+    <footer class="footer">
+        <p>&copy; Phanpy. copyrighted or something, these are just books anyways</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
