@@ -32,6 +32,8 @@ python3 ./main.py
 # Video example
 
 
+https://github.com/charasnael/StatFlexing/assets/75299103/38ab9b1e-767f-4b62-ac78-6837ba5b65ea
+
 
 
 # Updating the json file
