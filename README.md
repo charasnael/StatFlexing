@@ -16,7 +16,7 @@ For safety purposes, I recommend to make a copy of the sqlite database, even tho
 
 Install the dependencies with the following command (using a virtual environment, or not):
 ```python
-pip install -r requirements.txt
+pip install -r ./requirements
 ```
 
 Make sure the folder you're executing the code from has a file named "KoboReader.sqlite". If not, modify the variable named "filepath" at the beginning of the script in main.py
