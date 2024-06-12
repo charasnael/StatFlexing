@@ -21,6 +21,14 @@ pip install -r requirements.txt
 
 Make sure the folder you're executing the code from has a file named "KoboReader.sqlite". If not, modify the variable named "filepath" at the beginning of the script in main.py
 
+```python
+python3 ./generate_json.py
+```
+Launching the backend:
+```python
+python3 ./main.py
+```
+
 # Video example
 
 
@@ -41,8 +49,10 @@ As the json grows bigger, existing entries will not be recreated (unless removed
 
 # Things I may or may not do:
 
-## Python
+## Project
+- Delete unused files and clean the code a tiny bit
 
+## Python
 - Detect entries based on a unique ID and not the book title (lol) so that 2 books with the same name are not detected as duplicates :)
 
 ## HTML
