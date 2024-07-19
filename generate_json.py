@@ -4,9 +4,12 @@ from getInfos import getInfosFromTitle, correctSeries, correctDateRead, correctT
 import os.path
 import time
 
-def value_exists(value, list_of_dicts):
-    for dictionary in list_of_dicts:
-        if value in dictionary.values():
+def value_exists(title, author, passed_dictionary):  
+    for key in passed_dictionary:
+        # Finding the key in which the book may already be present
+        if title.lower() in key['Title'].lower():
+        # Matching if they are the same books or 2 different books with the same title and different author
+          if author.lower() in key['Author'].lower():
             return True
     return False
 
@@ -34,11 +37,15 @@ if __name__ == '__main__':
             
         # FOR ADDED ENTRIES IN COMPARISON TO EXISTING JSON 
         for item in listReadBooks:
-            
-            if not (value_exists(item['Title'], existingJSON)):
+# Each item looks like this: {'Author': 'Iain Reid', 'Title': "I'm Thinking of Ending Things", 'Date Read': '2024-07-19T08:33:20Z', 'Series': None, 'ReadFor': 18433, 'ReadForFormatted': '5:07:13'}        
+            if not (value_exists(title=item['Title'], author=item['Author'] , passed_dictionary=existingJSON)):
                 #  getting metadata for new entry
+                print("Adding the following book to the json file: ", item['Title'])
                 item=getInfosFromTitle(item)
                 item=correctSeries(item)
+                item=correctDateRead(item)
+                item=correctThoughts(item)
+                
                 # adding the new entry to the existing json (or not)
                 existingJSON.append(item)
                 
