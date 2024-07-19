@@ -55,7 +55,7 @@ As the json grows bigger, existing entries will not be recreated (unless removed
 - Delete unused files and clean the code a tiny bit
 
 ## Python
-- Detect entries based on a unique ID and not the book title (lol) so that 2 books with the same name are not detected as duplicates :)
+- 
 
 ## HTML
 - Sort by "Series"
